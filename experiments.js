@@ -1,3 +1,25 @@
+const array1 = [0, [1, 2, 3, 4, 5, 6]];
+const array2 = [[7, 8, 9], 10];
+const coba = (a, b, ...c) => {
+  console.log(...a, b, c);
+};
+
+coba(array1, "hello", array2);
+
+// ! destructuring
+// let person = {
+//   firstName: "John",
+//   lastName: "Doe",
+//   middleName: "C.",
+//   currentAge: 28,
+// };
+
+// let { firstName, lastName, middleName = "", currentAge = 18 } = person;
+
+// console.log(middleName);
+// console.log(currentAge);
+
+// method
 const namaLengkap = "Farhan Rizqi Aminullah";
 let email = "farhanrizqi008@gmail.com";
 let nomorHandphone = "089657514884";
@@ -188,46 +210,132 @@ const biodata = {
   golonganDarah: golonganDarah,
   hobi: hobi,
   makananFav: makananFav,
+  printNama: () => {
+    console.log(`Nama : ${this.namaLengkap}`);
+  },
+  printEmail: () => {
+    console.log(`email : ${this.email}`);
+  },
+  printPhoneNumber: () => {
+    console.log(`nomor : ${this.nomorHandphone}`);
+  },
 };
 
-// soal no 1
-// function bio(obj) {
-//   console.log(biodata.namaLengkap);
-//   console.log(
-//     "Pernah menempuh pendidikan di " +
-//       biodata.riwayatPendidikan.length +
-//       " tempat"
-//   );
-// }
-
-// bio(biodata);
-
-// soal no 2
-function looping(num) {
-  for (i = 1; i <= num; i++) {
-    console.log("looping ke " + i);
-  }
-}
-
-looping(5);
-
-// soal no 3
-function printHobbies(listHobi) {
-  for (i = 1; i <= listHobi.length; i++) {
-    console.log("hobi ke " + i + " adalah " + listHobi[i - 1]);
-  }
-}
-
-printHobbies(hobi);
-
-// soal no 4
-// const checkPassingGrade = (grade) => {
-//   if (grade >= 75) {
-//     return "selamat, anda lolos!";
-//   } else {
-//     return "anda tidak lolos!";
-//   }
+// const pushMethod = (key, value) => {
+//   biodata[key] = value;
 // };
 
-// const gradeCheckMessage = checkPassingGrade(60);
-// console.log(gradeCheckMessage);
+// pushMethod("printNama", (namaLengkap) => {
+//   return `halo nama saya ${namaLengkap}`;
+// });
+// pushMethod("printEmail", (email) => {
+//   return `ini email saya ${email}`;
+// });
+// pushMethod("printPhoneNumber", (nomorHandphone) => {
+//   return `dan ini nomor saya ${nomorHandphone}`;
+// });
+
+// const cetakNama = biodata.printNama(namaLengkap);
+// const cetakEmail = biodata.printEmail(email);
+// const cetakNomor = biodata.printPhoneNumber(nomorHandphone);
+
+biodata.printNama(namaLengkap);
+biodata.printEmail(email);
+biodata.printPhoneNumber(nomorHandphone);
+
+// console.log(cetakNama);
+// console.log(cetakEmail);
+// console.log(cetakNomor);
+
+const persegi = (num) => {
+  let b = "";
+  for (let i = 1; i <= num; i++) {
+    for (let a = 1; a <= num; a++) {
+      if (i == 1 || i == num || a == 1 || a == num) {
+        b += " *";
+      } else {
+        b += "  ";
+      }
+    }
+    b += "\n";
+  }
+  console.log(b);
+};
+
+persegi(6);
+
+const printTriangleWithNumberExp = (num) => {
+  if (typeof num === "number") {
+    for (let i = num; i >= 1; i--) {
+      let bintang = "";
+      for (let j = num; j >= i; j--) {
+        if (j >= i) {
+          bintang += j;
+        } else {
+          bintang += " ";
+        }
+      }
+      console.log(bintang);
+    }
+  } else if (isNaN(num)) {
+    console.log("paramter harus angka");
+  } else {
+    console.log("parameter harus angka");
+  }
+};
+
+printTriangleWithNumberExp(5);
+
+// menggunakan return
+// const printSquare2 = (num) => {
+//   let persegi = "";
+//   for (let i = 0; i < num; i++) {
+//     let bintang = "";
+//     for (let j = 0; j < num; j++) {
+//       bintang += " *";
+//     }
+// console.log(bintang);
+//     persegi += bintang + "\n";
+//   }
+//   return persegi;
+// };
+
+// const print = printSquare2(5);
+// console.log(print);
+
+// !
+// const pokemonData = (method, url) => {
+//   return new Promise((resolve, reject) => {
+//     const ajax = new XMLHttpRequest();
+//     ajax.open(method, url);
+//     ajax.send();
+
+//     ajax.onreadystatechange = () => {
+//       if (ajax.status === 200) {
+//         const data = JSON.parse(ajax.responseText);
+//         const pokeDataArr = [];
+//         data.results.forEach((dataPoke) => {
+//           const id = dataPoke.url.split("/").slice(-2, -1)[0];
+//           const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+
+//           const pokeData = {
+//             image: img,
+//             name: dataPoke.name,
+//             url: dataPoke.url,
+//           };
+//           pokeDataArr.push(pokeData);
+//         });
+//         resolve(pokeDataArr);
+//       } else {
+//         reject("ada error");
+//       }
+//     };
+//   });
+// };
+// pokemonData("get", "https://pokeapi.co/api/v2/pokemon")
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });

@@ -32,7 +32,13 @@ console.log(
 //! spread operator '...' digunakan untuk meleburkan nilai pada array
 const fav = ["musik", "makan", "tidur"];
 console.log(fav);
-console.log(...fav);
+const reverseFav = fav.reverse();
+console.log(typeof reverseFav);
+console.log(...reverseFav);
+console.log(JSON.stringify(reverseFav));
+console.log(typeof reverseFav);
+
+// const changeToString = JSON.stringify(reverseFav);
 
 const warna = ["biru", "merah", "kuning"];
 const gabung = [...fav, ...warna];

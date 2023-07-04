@@ -1,3 +1,4 @@
+// soal no 1
 const namaLengkap = "Farhan Rizqi Aminullah";
 let email = "farhanrizqi008@gmail.com";
 let nomorHandphone = "089657514884";
@@ -190,44 +191,82 @@ const biodata = {
   makananFav: makananFav,
 };
 
-// soal no 1
-// function bio(obj) {
-//   console.log(biodata.namaLengkap);
-//   console.log(
-//     "Pernah menempuh pendidikan di " +
-//       biodata.riwayatPendidikan.length +
-//       " tempat"
-//   );
-// }
+const pushMethod = (key, value) => {
+  biodata[key] = value;
+};
 
-// bio(biodata);
+pushMethod("printNama", (namaLengkap) => {
+  return `halo nama saya ${namaLengkap}`;
+});
+pushMethod("printEmail", (email) => {
+  return `ini email saya ${email}`;
+});
+pushMethod("printPhoneNumber", (nomorHandphone) => {
+  return `dan ini nomor saya ${nomorHandphone}`;
+});
+
+const cetakNama = biodata.printNama(namaLengkap);
+const cetakEmail = biodata.printEmail(email);
+const cetakNomor = biodata.printPhoneNumber(nomorHandphone);
+
+console.log(cetakNama);
+console.log(cetakEmail);
+console.log(cetakNomor);
 
 // soal no 2
-function looping(num) {
-  for (i = 1; i <= num; i++) {
-    console.log("looping ke " + i);
-  }
-}
+const greeting = (
+  clock,
+  functionReturnDay,
+  fullName,
+  functionReturnFirstName
+) => {
+  const jam = functionReturnDay(clock);
+  const firstName = functionReturnFirstName(fullName);
 
-looping(5);
+  console.log(`Selamat ${jam}, ${firstName}! `);
+};
+
+// returnDay
+const functionReturnDay = (clock) => {
+  if (clock <= 12 && clock >= 5) {
+    return "pagi";
+  } else if (clock <= 15 && clock >= 13) {
+    return "siang";
+  } else if (clock <= 18 && clock >= 16) {
+    return "sore";
+  } else if ((clock <= 24 && clock >= 19) || (clock <= 4 && clock >= 0)) {
+    return "malam";
+  } else {
+    return "mohon masukan angka 1 - 24";
+  }
+};
+
+// returnFirstName
+const functionReturnFirstName = (fullName) => {
+  let firstName = fullName.split(" ", 1);
+  return firstName;
+};
+
+const clock = 14;
+const fullName = "Farhan Rizqi Aminullah";
+
+greeting(clock, functionReturnDay, fullName, functionReturnFirstName);
 
 // soal no 3
-function printHobbies(listHobi) {
-  for (i = 1; i <= listHobi.length; i++) {
-    console.log("hobi ke " + i + " adalah " + listHobi[i - 1]);
+const printTriangleWithNumber = (num) => {
+  if (typeof num === "number") {
+    for (let i = num; i >= 1; i--) {
+      let bintang = "";
+      for (let j = 1; j <= i; j++) {
+        bintang += j + " ";
+      }
+      console.log(bintang);
+    }
+  } else if (isNaN(num)) {
+    console.log("paramter harus angka");
+  } else {
+    console.log("parameter harus angka");
   }
-}
+};
 
-printHobbies(hobi);
-
-// soal no 4
-// const checkPassingGrade = (grade) => {
-//   if (grade >= 75) {
-//     return "selamat, anda lolos!";
-//   } else {
-//     return "anda tidak lolos!";
-//   }
-// };
-
-// const gradeCheckMessage = checkPassingGrade(60);
-// console.log(gradeCheckMessage);
+printTriangleWithNumber(5);

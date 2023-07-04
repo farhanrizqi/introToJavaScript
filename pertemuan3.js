@@ -1,28 +1,28 @@
 // soal no 1
-// const printOddNumber = (num) => {
-//   for (i = 1; i <= num; i += 2) {
-//     console.log(i);
-//   }
-// };
+const printOddNumber = (num) => {
+  for (i = 1; i <= num; i += 2) {
+    console.log(i);
+  }
+};
 
-// printOddNumber(10);
+printOddNumber(10);
 
 // soal no 2
-// const printPijarCamp = (num) => {
-//   for (i = 1; i <= num; i++) {
-//     if (i % 3 === 0 && i % 5 === 0) {
-//       console.log("pijarCamp");
-//     } else if (i % 5 === 0) {
-//       console.log("camp");
-//     } else if (i % 3 === 0) {
-//       console.log("pijar");
-//     } else {
-//       console.log(i);
-//     }
-//   }
-// };
+const printPijarCamp = (num) => {
+  for (i = 1; i <= num; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("pijarCamp");
+    } else if (i % 5 === 0) {
+      console.log("camp");
+    } else if (i % 3 === 0) {
+      console.log("pijar");
+    } else {
+      console.log(i);
+    }
+  }
+};
 
-// printPijarCamp(15);
+printPijarCamp(15);
 
 // soal no 3
 const combineArray = () => {
