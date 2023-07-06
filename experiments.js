@@ -339,3 +339,27 @@ printTriangleWithNumberExp(5);
 //   .catch((err) => {
 //     console.log(err);
 //   });
+
+const scoreAverage = () => {
+  let scoreSum = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    scoreSum += arguments[i];
+  }
+  let scoreAvg = scoreSum / arguments.length;
+  console.log(scoreAvg);
+  if (scoreAvg >= 90) {
+    console.log("Grade = A");
+  } else if (scoreAvg >= 80 && scoreAvg <= 89) {
+    console.log("Grade = B");
+  } else if (scoreAvg >= 70 && scoreAvg <= 79) {
+    console.log("Grade = C");
+  } else if (scoreAvg >= 60 && scoreAvg <= 69) {
+    console.log("Grade = D");
+  } else if (scoreAvg <= 59) {
+    console.log("Grade = E");
+  } else {
+    console.log("Sorry your grade is unknown. Please contact your teacher");
+  }
+};
+
+scoreAverage(1, 2, 3, 4);
