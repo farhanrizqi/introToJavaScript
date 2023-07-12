@@ -363,3 +363,40 @@ const scoreAverage = () => {
 };
 
 scoreAverage(1, 2, 3, 4);
+
+const pertambahan = (num1, num2) => {
+  return num1 + num2;
+};
+
+// ! search
+const names = [
+  "Abigail",
+  "Alexandra",
+  "Alison",
+  "Amanda",
+  "Angela",
+  "Bella",
+  "Carol",
+  "Caroline",
+  "Carolyn",
+  "Deirdre",
+  "Diana",
+  "Elizabeth",
+  "Ella",
+  "Faith",
+  "Olivia",
+  "Penelope",
+];
+
+const search = (keyword, limit, hasil) => {
+  const filter = names
+    .filter((name) => name.toLowerCase().includes(keyword.toLowerCase()))
+    .slice(0, limit);
+  hasil(filter);
+};
+
+const hasil = (result) => {
+  console.log(result);
+};
+
+search("an", 2, hasil);
